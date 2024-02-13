@@ -1,0 +1,33 @@
+@{
+ViewData["Title"] = "Home Page";
+}
+@model Product
+<form asp-action="Create" method="post" class="form" enctype="multipart/form-data">
+    <!--enctype hangi verileler ugrasacını belirtir multi olmassa dosya alamaz default textdir sadece-->
+    <div asp-validation-summary="All"></div><!--tum hataları yazırır-->
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label"></label><!--label deger yoksa Displayden gelir-->
+        <input asp-for="Name" class="form-control">
+        <span asp-validation-for="Name"></span><!--o  alana ait hata yazdırır-->
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label"></label>
+        <input asp-for="Price" class="form-control">
+        <span asp-validation-for="Price"></span>
+    </div>
+    <div class="mb-3 input--group">
+        <input type="file" name="imageFile" id="imageFile" class="form-control">
+
+    </div>
+    <div class="mb-3">
+        <label asp-for="CategoryId" class="form-label"></label>
+        <select asp-for="CategoryId" class="form-control" asp-items="@ViewBag.Categories"></select>
+    </div>
+    <div class="mb-3 form-check">
+        <input asp-for="IsActive" class="form-check-input">
+        <label asp-for="IsActive" class="form-check-label"></label>
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="form-control">Kaydet</button>
+    </div>
+</form>
