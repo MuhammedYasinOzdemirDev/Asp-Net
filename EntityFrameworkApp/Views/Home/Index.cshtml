@@ -1,0 +1,46 @@
+﻿@{
+ViewData["Title"] = "Home Page";
+}
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Create">Kurs Kaydı Ekle</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogretmen" asp-action="Index">Öğretmenler</a>
+    </li>
+    </li>
+</ul>}
+@model IEnumerable<KursKayit>
+    <h2>Kurs Kayıtları</h2>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width:100px;">@Html.DisplayNameFor(m=>m.KayitId)</th>
+                <th>@Html.DisplayNameFor(m=>m.OgrenciId)</th>
+                <th>@Html.DisplayNameFor(m=>m.KayitId)</th>
+                <th style="width:150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var kayit in Model){
+            <tr>
+                <td>@kayit.KayitId</td>
+                <td>@kayit.Ogrenci.AdSoyad</td>
+                <td>@kayit.Kurs.Baslik</td>
+                <td><a href="/Home/Edit/@kayit.KursId" class="btn btn-sm btn-primary" style=margin-right:4px;>Edit</a>
+                    <a href="/Home/Delete/@kayit.KursId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

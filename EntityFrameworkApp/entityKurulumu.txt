@@ -1,0 +1,13 @@
+google ef core providers araması yapılır
+database providerden hangi veri tabanı seçilir kurulmu yapılır Context sınıfı olusturulur
+prpogramcs ye builder.Services.AddDbContext<KursContext>(options =>{
+options.UseSqlite();
+}); gibi eklenir belirtilir 
+google ef core tools araması yapılır
+dotnet tool install -g dotnet-ef kurulur
+dotnet add package Microsoft.EntityFrameworkCore.Desing desing paketi kurulurdot
+dotnet ef migrations add DatabaseCreate
+migrate kodunu migrate etmemiz lazım DatabaseCreta klasor adı belirtiriz dosyalar olusur
+migrations tablo olusturmak için classları yazar
+ dotnet ef database update 
+ database olusturması yapar

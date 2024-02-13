@@ -1,0 +1,59 @@
+@{
+ViewData["Title"] = "Create Page";
+}
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    </li>
+</ul>}
+
+@model Ogrenci
+<div class="row">
+    <div class="col-8">
+
+        <form asp-action="edit" method="post">
+            <input type="hidden" asp-for="Id">
+            <div class="mb-3">
+                <label asp-for="Ad" class="form-label">
+                    Öğrenci Ad
+                </label>
+                <input asp-for="Ad" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Soyad" class="form-label">
+                    Öğrenci Soyad
+                </label>
+                <input asp-for="Soyad" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Eposta" class="form-label">
+                    Öğrenci Eposta
+                </label>
+                <input asp-for="Eposta" class="form-control">
+            </div>
+            <div class="mb-3">
+                <label asp-for="Telefon" class="form-label">
+                    Öğrenci Telefon
+                </label>
+                <input asp-for="Telefon" class="form-control">
+            </div>
+            <button type="submit" class="form-control btn btn-secondary">Kaydet</button>
+        </form>
+    </div>
+    <div class="col-4">
+        <h2>Kurs Kayıtları</h2>
+        <hr>
+        <ul>
+            @foreach (var kayit in Model.KursKayitlari){
+            <li>@kayit.Kurs.Baslik</li><!--Kurs kayıtları verir tabanaına ordandan kurslara erişim sağlanir-->
+            }
+        </ul>
+    </div>
+</div>

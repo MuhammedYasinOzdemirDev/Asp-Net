@@ -1,0 +1,43 @@
+@{
+ViewData["Title"] = "Home Page";
+}
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogretmen" asp-action="Create">Öğretmen Kaydı Ekle</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    </li>
+</ul>}
+@model IEnumerable<Ogretmen>
+    <h2>Öğretmen Kayıtları</h2>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width:100px;">@Html.DisplayNameFor(m=>m.OgretmenId)</th>
+                <th>@Html.DisplayNameFor(m=>m.AdSoyad)</th>
+                <th style="width:150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var kayit in Model){
+            <tr>
+                <td>@kayit.OgretmenId</td>
+                <td>@kayit.AdSoyad</td>
+                
+                <td><a href="/Ogretmen/Edit/@kayit.OgretmenId" class="btn btn-sm btn-primary"
+                        style=margin-right:4px;>Edit</a>
+                    <a href="/Ogretmen/Delete/@kayit.OgretmenId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

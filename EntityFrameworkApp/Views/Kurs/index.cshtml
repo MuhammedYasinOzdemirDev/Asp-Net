@@ -1,0 +1,40 @@
+@{
+ViewData["Title"] = "Home Page";
+}
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Create">Kurs Ekle</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    </li>
+</ul>}
+@model IEnumerable<Kurs>
+    <h2>Kurs Listesi</h2>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width:100px;">@Html.DisplayNameFor(m=>m.KursId)</th>
+                <th>@Html.DisplayNameFor(m=>m.Baslik)</th>
+                <th>Öğretmen</th>
+                <th style="width:150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var kurs in Model){
+            <tr>
+                <td>@kurs.KursId</td>
+                <td>@Html.DisplayFor(modelitem=>kurs.Baslik)</td><!--bu yontemle ile yazdırlabilir-->
+                <td>@Html.DisplayFor(modelitem=>kurs.ogretmen.AdSoyad)</td>
+                <td><a href="/Kurs/Edit/@kurs.KursId" class="btn btn-sm btn-primary" style=margin-right:4px;>Edit</a>
+                    <a href="/Kurs/Delete/@kurs.KursId" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>

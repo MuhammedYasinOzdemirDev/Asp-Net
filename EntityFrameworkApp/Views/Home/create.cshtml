@@ -1,0 +1,34 @@
+@{
+ViewData["Title"] = "Create Page";
+}
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp- asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    </li>
+</ul>}
+@model KursKayit
+<h2>Kurs Kaydı Ekle</h2>
+<hr>
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="OgrenciId" class="form-label">
+            Öğrenci
+        </label>
+        <select asp-for="OgrenciId" asp-items="ViewBag.Ogrenciler" class="form-control"></select>
+    </div>
+    <div class="mb-3">
+        <label asp-for="KursId" class="form-label">
+            Kurs
+        </label>
+        <select asp-for="KursId" asp-items="ViewBag.Kurslar" class="form-control"></select>
+    </div>
+
+    <button type="submit" class="form-control btn btn-secondary">Kaydet</button>
+</form>

@@ -1,0 +1,22 @@
+@model Ogretmen
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    </li>
+</ul>}
+<p>
+
+    <b>@Model.Ad @Model.Soyad </b> isimli öğretmeni silmek istiyor musun?
+<form action="Delete" method="post">
+    <input type="hidden" name="id" value="@Model.OgretmenId"><!--int id yollamaya yarar-->
+    <button type="submit" class="btn btn-primary">Evet</button>
+    <a asp-controller="Ogretmen" asp-action="Index" class="btn btn-danger">Hayır</a>
+</form>
+</p>

@@ -1,0 +1,49 @@
+@{
+ViewData["Title"] = "Create Page";
+}
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogrenci" asp-action="Index">Öğrenciler</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    </li>
+</ul>}
+@model Ogretmen
+<form asp-action="Create" method="post">
+    <div class="mb-3">
+        <label asp-for="Ad" class="form-label">
+            Öğretmen Ad
+        </label>
+        <input asp-for="Ad" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Soyad" class="form-label">
+            Öğretmen Soyad
+        </label>
+        <input asp-for="Soyad" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Eposta" class="form-label">
+            Öğretmen Eposta
+        </label>
+        <input asp-for="Eposta" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Telefon" class="form-label">
+            Öğretmen Telefon
+        </label>
+        <input asp-for="Telefon" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="BaslamaTarihi" class="form-label">
+            Öğretmen Telefon
+        </label>
+        <input asp-for="BaslamaTarihi" class="form-control">
+    </div>
+    <button type="submit" class="form-control btn btn-secondary">Kaydet</button>
+</form>

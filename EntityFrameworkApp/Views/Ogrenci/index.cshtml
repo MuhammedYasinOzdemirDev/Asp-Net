@@ -1,0 +1,40 @@
+@{
+ViewData["Title"] = "Home Page";
+}
+@section Link{
+<ul class="navbar-nav flex-grow-1">
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Ogrenci" asp-action="Create">Öğrenci Ekle</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link text-dark" asp-area="" asp-controller="Kurs" asp-action="Index">Kurslar</a>
+    </li>
+</ul>}
+@model IEnumerable<Ogrenci>
+    <h2>Öğrenci Listesi</h2>
+    <hr>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th style="width:100px;">@Html.DisplayNameFor(m=>m.Id)</th>
+                <th>@Html.DisplayNameFor(m=>m.Ad)</th>
+                <th>@Html.DisplayNameFor(m=>m.Soyad)</th>
+                <th style="width:150px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var ogr in Model){
+            <tr>
+                <td>@ogr.Id</td>
+                <td>@Html.DisplayFor(modelitem=>ogr.Ad)</td><!--bu yontemle ile yazdırlabilir-->
+                <td>@ogr.Soyad</td>
+                <td><a href="/Ogrenci/Edit/@ogr.Id" class="btn btn-sm btn-primary" style=margin-right:4px;>Edit</a>
+                    <a href="/Ogrenci/Delete/@ogr.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
