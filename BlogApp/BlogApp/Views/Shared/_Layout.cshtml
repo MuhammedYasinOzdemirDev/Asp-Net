@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/lib/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/lib/bootstrap-icons/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+    <title>BlogApp</title>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary shadow-sm">
+        <div class="container">
+            <a href="/" class="navbar-brand" style="font-size: 20px;">
+                <i class="bi bi-code"></i> BlogApp</a>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" asp-action="List" asp-controller="Posts">Postları
+                            Düzenle</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" asp-action="List" asp-controller="Tags">Kategori
+                            Düzenle</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link " aria-disabled="true">Disabled</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-3">
+        @RenderBody()
+    </div>
+    <script src="~/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/bootstrap/js/bootstrap.min.js"></script>
+</body>
+
+</html>

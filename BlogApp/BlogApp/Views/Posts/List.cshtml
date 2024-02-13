@@ -1,0 +1,48 @@
+@model IEnumerable<Post>
+    <h2>Post Listesi</h2>
+    <hr>
+    <div class="d-grid gap-2">
+        <a class="btn btn-primary" href="/Posts/Create">Post Ekle</a>
+
+    </div>
+    <hr>
+
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th style="width: 100px;">@Html.DisplayNameFor(m=>m.PostId)</th>
+
+                <th style="width: 400px;">@Html.DisplayNameFor(m=>m.Title)</th>
+                <th style="width: 300px;">@Html.DisplayNameFor(m=>m.User)</th>
+                <th style="width: 180px;">@Html.DisplayNameFor(m=>m.PublishedOn)</th>
+                <th style="width: 120px;">@Html.DisplayNameFor(m=>m.IsActive)</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var post in Model){
+            <tr>
+                <td>@post.PostId</td>
+
+                <td>@post.Title</td>
+                <td>@post.User.UserName</td>
+                <td>@post.PublishedOn</td>
+                <td style="text-align: center ;vertical-align:center;font-size:24px;">
+                    @if(post.IsActive){
+                    <i class="bi bi-check-circle"></i>
+                    }
+                    else{
+                    <i class="bi bi-x-circle"></i>
+                    }
+                </td>
+
+                <td><a href="/Posts/Edit/@post.PostId" class="btn btn-sm btn-primary" style=margin-right:4px;>Edit</a>
+                    <a asp-controller="Posts" asp-action="Delete" asp-route-id="@post.PostId"
+                        class="btn btn-sm btn-danger">Delete</a> <a href="/Posts/Details/@post.PostId"
+                        class="btn btn-sm btn-info">Details</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+
+    </table>

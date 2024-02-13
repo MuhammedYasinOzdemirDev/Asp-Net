@@ -1,0 +1,30 @@
+@model Post
+<div class="row">
+    <div class="col-md-8">
+        <div class="bg-white p-4">
+            <h2 class="h4 mb-4">@Model.Title</h2>
+            <div class="tags">
+                @{var a=0;}
+                @foreach (var tag in @Model.Tags){
+                <a href="" class="badge bg-danger bg-opacity-10 text-danger mb-2 fw-bold">a</a>
+                if(a%2 == 0){
+                <a href="" class="badge bg-danger bg-opacity-10 text-danger mb-2 fw-bold">@tag.Text</a>
+                }
+                else{
+                <a href="" class="badge bg-primary bg-opacity-10 text-primary mb-2 fw-bold">tag.Text</a>
+                }
+                a++;
+                }
+
+            </div>
+            <img src="~/img/@Model.Image" class="img-fluid rounded" width="600">
+            <br>
+            <p>@Model.Content</p>
+        </div>
+
+    </div>
+    <div class="col-md-4">
+
+        @await Component.InvokeAsync("TagsMenu")
+    </div>
+</div>

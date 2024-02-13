@@ -1,0 +1,27 @@
+@model IEnumerable<Tag>
+    <h2>Kategori Listesi</h2>
+    <hr>
+    <table class="table table-bordered table-striped table-hover">
+        <thead>
+            <tr>
+                <th style="width: 100px;">@Html.DisplayNameFor(m=>m.TagId)</th>
+
+                <th>@Html.DisplayNameFor(m=>m.Text)</th>
+                <th style="width: 200px;"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var tag in Model){
+            <tr>
+                <td>@tag.TagId</td>
+
+                <td>@tag.Text</td>
+                <td><a href="/Tags/Edit/@tag.TagId" class="btn btn-sm btn-primary" style=margin-right:4px;>Edit</a>
+                    <a href="/Tags/Delete/@tag.TagId" class="btn btn-sm btn-danger">Delete</a> <a
+                        href="/Tags/Details/@tag.TagId" class="btn btn-sm btn-info">Details</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+
+    </table>
