@@ -1,0 +1,37 @@
+@{
+ViewBag.Title="Toplantı Katılım Formu";
+}
+<!--bilgiyi çekmeye yarar-->
+@model UserInfo
+<h1 class="h4">Toplantı Katılım Formu</h1>
+<form method="post" action="/Meeting/Apply" style="text-align: left;">
+    <!--action hangi post metodu çalışcağı belilenir overload yoksa post belirymeye gerek yok-->
+    @if (!ViewData.ModelState.IsValid)
+    {
+    <div asp-validation-summary="All" class="alert alert-warning"></div>
+    }
+    <!--Modele girilen validition hata mesajları yazdırır-->
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Ad Soyad</label>
+        <input asp-for="Name"
+            class="form-control"><!--asp for sayesinde otonom yapar ve model olarak bilgiyi çekebilmeyi yarar-->
+        <!--<label for="Name" class="form-label">Ad Soyad</label>
+        <input type="text" name="Name" id="Name" class="form-control">-->
+    </div>
+    <div class="mb-3">
+        <label asp-for="Phone" class="form-label">Telefon</label>
+        <input asp-for="Phone" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Email" class="form-label">Eposta</label>
+        <input asp-for="Email" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="WillAttend" class="form-label">Katılım Durumu</label>
+        <select asp-for="WillAttend" class="form-control">
+            <option value="true">Evet, Katılıyorum...</option>
+            <option value="false">Hayır, Katılmıyorum...</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary form-control">Kaydet</button>
+</form>

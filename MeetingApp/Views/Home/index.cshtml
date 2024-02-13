@@ -1,0 +1,19 @@
+<!--using MeetingApp.Models modeli gormek için tanımlanır-->
+@model MeetingInfo
+@{
+Layout="_Layout2";
+ViewBag.Title="Başvuru";<!--Çeşitli değişkenler olusturulabilir-->
+
+}
+<h1 class="h4">@ViewBag.Selamlama @ViewData["username"]</h1>
+<h2>Toplantı katılım durumunuzu bildiriniz</h2>
+<div class="card my-2">
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">@Model.Location</li>
+        <li class="list-group-item">@Model.Date.ToString("dd/MM//yyyy HH:mm:ss")</li>
+        <li class="list-group-item">@Model.NumberOfPeople</li>
+
+    </ul>
+</div>
+<a class="btn btn-sm btn-outline-primary" asp-controller="Meeting" asp-action="Apply">Başvuru
+    Yap</a><!--asp modlarını kullanmak için tag helpers leri import etmek gerekir-->

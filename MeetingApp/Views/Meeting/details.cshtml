@@ -1,0 +1,24 @@
+@model UserInfo
+@{
+ViewBag.Title=Model.Name;
+}
+@{
+var className=Model.WillAttend==true?"primary":"danger";
+}
+<main>
+    <h1 class="h4">Başvuru Detayı</h1>
+    <p><span class="badge text-bg-@className">
+            @if(Model.WillAttend==true){
+            <text>Katılıyorum</text>
+            }else{
+            <text>Katılmıyorum</text>
+            }
+        </span></p>
+    <div class="card">
+        <div class="card-body">
+            <p>İsim:@Model.Name</p>
+            <p>Email:@Model.Email</p>
+            <p>Telefon:@Model.Phone</p>
+        </div>
+    </div>
+</main>
