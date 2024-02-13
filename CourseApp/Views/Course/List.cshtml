@@ -1,0 +1,51 @@
+@model IEnumerable<Student>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">  
+    <link rel="stylesheet" href="/modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/style.css">
+</head>
+<body>
+
+
+     <div class="container m-4">
+            <div class="card mx-auto" style="width:500px;">
+                <div class="card-header">
+                    Kursa Katılanlar
+                </div>
+                 <table class="table table-bordered table-striped">
+                    <thead>
+                        <tr>
+                            <td>Name</td>
+                            <td>Email</td>
+                            <td>Phone</td>
+                            <td>Confirm</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var student in Model)
+                        {
+                            <tr>
+                                <td>@student.Name</td>
+                                <td>@student.Email</td>
+                                <td>@student.Phone</td>
+                                <td>@student.Confirm</td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+   
+    
+   
+
+</body>
+</html>

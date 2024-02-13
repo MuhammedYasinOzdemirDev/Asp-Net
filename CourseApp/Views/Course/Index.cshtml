@@ -1,0 +1,39 @@
+@model CourseStudentsViewModel
+@{
+var classname=Model.Students.Count>1 ? "populer":null;
+}
+@*
+yorum satırı
+*@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Course</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <style>
+        .populer {
+            color: red;
+            font-weight: 700;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="@classname">@Model.Course.Name</h1>
+
+    <h3>
+        @Model.Course.description</h3>
+    </h4>
+    @foreach (var student in Model.Students){
+    <h6>
+        @student.Name
+    </h6>
+    }
+</body>
+
+</html>
