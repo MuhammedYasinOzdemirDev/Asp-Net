@@ -1,0 +1,28 @@
+@model User
+<div class="container mt-3">
+    <h2>Kayıt Ekranı</h2>
+    <hr>
+    <form asp-controller="Home" asp-action="Register" method="post" class="form">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label"></label>
+            <input asp-for="Name" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label asp-for="UserName" class="form-label"></label>
+            <input asp-for="UserName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Passaword" class="form-label"></label>
+            <input asp-for="Passaword" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input asp-for="Administrator" class="form-check-input">
+            <label asp-for="Administrator" class="form-check-label">Yönetici</label>
+
+        </div>
+        <div class="mb-2">
+            <button type="submit" class="btn btn-primary form-control">Kaydet</button>
+        </div>
+
+    </form>
+</div>

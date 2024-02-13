@@ -1,0 +1,12 @@
+@model ProductCategoryModel
+<div class="row">
+    <div class="col-md-3">
+
+        @Html.Partial("_menu",Model.Categories)
+
+    </div>
+    <div class="col-md-9">
+
+        <partial name="_movies" model="Model.Products" />
+    </div>
+</div>

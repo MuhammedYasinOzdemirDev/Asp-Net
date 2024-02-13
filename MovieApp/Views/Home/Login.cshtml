@@ -1,0 +1,19 @@
+@model UserLogin
+<div class="container mt-3">
+    <h2>Giriş Ekranı</h2>
+    <hr>
+    <form asp-controller="Home" asp-action="Login" method="post" class="form">
+        <div class="mb-3">
+            <label asp-for="UserName" class="form-label"></label>
+            <input asp-for="UserName" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label asp-for="Passaword" class="form-label"></label>
+            <input asp-for="Passaword" class="form-control">
+        </div>
+        <div class="mb-2">
+            <button type="submit" class="btn btn-primary form-control">Kaydet</button>
+        </div>
+
+    </form>
+</div>

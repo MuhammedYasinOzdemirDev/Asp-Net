@@ -1,0 +1,9 @@
+@model IEnumerable<Category>
+    <div class="list-group">
+        @foreach (Category category in Model){
+        var c = (category.Id.ToString() == ViewBag.SelectCategory && ViewBag.action.ToString()=="Index") ? "active" :
+        "";
+        <a asp-controller="Home" asp-action="Index" asp-route-id="@category.Id"
+            class="list-group-item list-group-item-action @c">@category.Name</a>
+        }
+    </div>
