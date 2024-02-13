@@ -1,0 +1,10 @@
+@model Product
+<div class="card mt-3">
+    <h3 class="card-header">Product Bilgisi</h3>
+    <div class="card-body">
+        <h4 class="card-title">@Model.Name</h4>
+        <small>@Model.Price TL</small>
+        <p class="card-text">@Model.Description</p>
+        <a href="/Product/Delete/Model.Id" class="btn btn-primary">Delete</a>
+    </div>
+</div>

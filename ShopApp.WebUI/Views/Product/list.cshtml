@@ -1,0 +1,34 @@
+@model ProductViewModel
+
+@{
+Layout="_Layout2";
+}
+
+@{
+var popularClass = Model.products.Count()>2? "popular":"";
+var products = Model.products;
+}
+
+
+<div class="row">
+    <div class="col-md-3">
+        @await Component.InvokeAsync("Categories")
+    </div>
+    <div class="col-md-9">
+        @if(products.Count() ==0 )
+        {
+        @await Html.PartialAsync("_noproduct")
+        }
+        else
+        {
+        <div class="row">
+            @foreach (var product in products)
+            {
+            <div class="col-md-3">
+                @await Html.PartialAsync("_product", product)
+            </div>
+            }
+        </div>
+        }
+    </div>
+</div>

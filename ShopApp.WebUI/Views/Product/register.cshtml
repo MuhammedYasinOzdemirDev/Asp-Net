@@ -1,0 +1,19 @@
+@model Product
+<h2 class="h1 mt-3">Kayıt Ekranı</h2>
+
+<form action="Register" method="post">
+    <div asp-validation-summary="All"></div>
+    <div class="mb-3">
+        <label asp-for="Name" class="form-label">Name</label>
+        <input asp-for="Name" class="form-control" placeholder="Name">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Price" class="form-label">Price</label>
+        <input asp-for="Price" class="form-control" placeholder="Price">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label">Description</label>
+        <textarea class="form-control" asp-for="Description" rows="3"></textarea>
+    </div>
+    <button type="submit" class="form-control">Kaydet</button>
+</form>
