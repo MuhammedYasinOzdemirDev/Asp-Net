@@ -1,0 +1,17 @@
+﻿@{
+ViewData["Title"] = "Search";
+}
+
+<h1>Search/h1>
+    <br>
+    <form action="/Home/Search" method="get">
+        <div class="form-group">
+            <label for="q" class="form-label"></label>
+            <input type="text" name="q" id="q" class="form-control">
+        </div>
+        <input type="submit" value="Ara">
+    </form>
+    @if(!string.IsNullOrEmpty(ViewBag.aa)){
+
+    <h2>@ViewBag.aa</h2>
+    }
