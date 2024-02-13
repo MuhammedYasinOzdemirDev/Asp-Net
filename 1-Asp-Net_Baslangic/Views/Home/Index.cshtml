@@ -1,0 +1,28 @@
+@model List<Course>
+    <h1>Home</h1>
+    <hr>
+    @section Header{<!--Layouttdaki header bolumune yazar ve ustteki yazıdan ustunde çıkar-->
+    @await Html.PartialAsync("_Header");
+    }
+    @section styles{
+    <style>
+        p {
+            color: darkred;
+        }
+    </style>
+    }
+    <div class="row">
+        @foreach(var kurs in Model){
+        @if(kurs.isActive && kurs.isHome)
+        <div class="col-3">
+            <div class="card">
+                <img src="~/img/@kurs.img" alt="" class="card-img-top">
+                <div class="card-body">
+                    <h5 class="card-title">@kurs.title</h5>
+                    <p class="card-text">@kurs.description</p>
+                    <a href="course/details/@kurs.Id">Detay</a>
+                </div>
+            </div>
+        </div>
+        }
+    </div>

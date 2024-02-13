@@ -1,0 +1,11 @@
+@model List<Course>
+    <div class="container mt-3">
+        @foreach (var c in Model){
+        <!--PArtial views ikici olarak model gönderirirz-->
+        <!--birden cok yeri aynı anda duzenleme imkanı saglar-->
+        @if(c.isActive){
+        @await Html.PartialAsync("_CourseCard",c)
+        }
+        }
+
+    </div>

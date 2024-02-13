@@ -1,0 +1,10 @@
+<!--@using _1_Asp_Net_Baslangic.Models normalde klasoru bulmak için yazılır ama gereksiz kullanım olur diye _CiewImports yazılır-->
+
+<!--Model kursu dahil edilir-->
+@model Course
+<div class="container mt-2 pb-3">
+    <h1>Kurs Bilgileri</h1>
+    <hr>
+    @await Html.PartialAsync("_CourseCard",Model)
+
+</div>
